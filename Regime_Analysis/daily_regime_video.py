@@ -203,17 +203,19 @@ class ChartGenerator:
                 "/System/Library/Fonts/Helvetica.ttc",  # macOS
             ]
             title_font = None
+            found_font_path = None
             for font_path in font_paths:
                 if os.path.exists(font_path):
                     title_font = ImageFont.truetype(font_path, 100)
+                    found_font_path = font_path
                     break
             
-            if not title_font:
+            if not title_font or not found_font_path:
                 raise IOError("No suitable font found")
             
-            # Same font paths for subtitle and text
-            subtitle_font = ImageFont.truetype(font_path, 60)
-            text_font = ImageFont.truetype(font_path, 40)
+            # Same font for subtitle and text
+            subtitle_font = ImageFont.truetype(found_font_path, 60)
+            text_font = ImageFont.truetype(found_font_path, 40)
         except:
             title_font = subtitle_font = text_font = ImageFont.load_default()
         
@@ -510,14 +512,17 @@ class ChartGenerator:
                 "/System/Library/Fonts/Helvetica.ttc",  # macOS
             ]
             title_font = None
+            found_font_path = None
             for font_path in font_paths:
                 if os.path.exists(font_path):
                     title_font = ImageFont.truetype(font_path, 80)
-                    text_font = ImageFont.truetype(font_path, 36)
+                    found_font_path = font_path
                     break
             
-            if not title_font:
+            if not title_font or not found_font_path:
                 raise IOError("No suitable font found")
+            
+            text_font = ImageFont.truetype(found_font_path, 36)
         except:
             title_font = text_font = ImageFont.load_default()
         
