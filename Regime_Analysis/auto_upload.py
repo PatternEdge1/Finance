@@ -142,7 +142,7 @@ class YouTubeUploader:
                 'title': title,
                 'description': description,
                 'tags': tags,
-                'categoryId': '22'  # People & Blogs
+                'categoryId': '27'  # Education (alternatives: '28' for Science & Technology)
             },
             'status': {
                 'privacyStatus': 'public',  # or 'private' or 'unlisted'

@@ -55,7 +55,7 @@ REM ============================================================================
 
 echo.
 echo Running video generation...
-python daily_regime_video.py SPY QQQ IWM DIA XLF XLK XLE XLV
+py -3 daily_regime_video.py SPY QQQ IWM DIA XLF XLK XLE XLV
 
 if %ERRORLEVEL% NEQ 0 (
     echo.
@@ -73,7 +73,7 @@ REM ============================================================================
 
 REM echo.
 REM echo Running YouTube upload...
-REM python auto_upload.py
+REM py -3 auto_upload.py
 REM 
 REM if %ERRORLEVEL% NEQ 0 (
 REM     echo.

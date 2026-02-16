@@ -83,7 +83,8 @@ def test_chart_generator(regime_data):
     print("TEST: ChartGenerator")
     print("=" * 60)
     
-    output_dir = '/tmp/regime_test'
+    import tempfile
+    output_dir = os.path.join(tempfile.gettempdir(), 'regime_test')
     os.makedirs(output_dir, exist_ok=True)
     
     generator = ChartGenerator(regime_data, output_dir)
@@ -108,7 +109,8 @@ def test_voiceover_generator(regime_data):
     print("TEST: VoiceoverGenerator")
     print("=" * 60)
     
-    output_dir = '/tmp/regime_test'
+    import tempfile
+    output_dir = os.path.join(tempfile.gettempdir(), 'regime_test')
     
     generator = VoiceoverGenerator(regime_data, output_dir)
     

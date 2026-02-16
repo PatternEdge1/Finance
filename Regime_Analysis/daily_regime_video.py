@@ -196,9 +196,24 @@ class ChartGenerator:
         
         # Try to use a nice font, fall back to default if not available
         try:
-            title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 100)
-            subtitle_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 60)
-            text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 40)
+            # Try multiple font paths for cross-platform compatibility
+            font_paths = [
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",  # Linux
+                "C:\\Windows\\Fonts\\arialbd.ttf",  # Windows bold
+                "/System/Library/Fonts/Helvetica.ttc",  # macOS
+            ]
+            title_font = None
+            for font_path in font_paths:
+                if os.path.exists(font_path):
+                    title_font = ImageFont.truetype(font_path, 100)
+                    break
+            
+            if not title_font:
+                raise IOError("No suitable font found")
+            
+            # Same font paths for subtitle and text
+            subtitle_font = ImageFont.truetype(font_path, 60)
+            text_font = ImageFont.truetype(font_path, 40)
         except:
             title_font = subtitle_font = text_font = ImageFont.load_default()
         
@@ -488,8 +503,21 @@ class ChartGenerator:
         draw = ImageDraw.Draw(img)
         
         try:
-            title_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 80)
-            text_font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 36)
+            # Try multiple font paths for cross-platform compatibility
+            font_paths = [
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",  # Linux
+                "C:\\Windows\\Fonts\\arialbd.ttf",  # Windows bold
+                "/System/Library/Fonts/Helvetica.ttc",  # macOS
+            ]
+            title_font = None
+            for font_path in font_paths:
+                if os.path.exists(font_path):
+                    title_font = ImageFont.truetype(font_path, 80)
+                    text_font = ImageFont.truetype(font_path, 36)
+                    break
+            
+            if not title_font:
+                raise IOError("No suitable font found")
         except:
             title_font = text_font = ImageFont.load_default()
         
