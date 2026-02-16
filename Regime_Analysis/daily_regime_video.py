@@ -20,7 +20,12 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from sklearn.mixture import GaussianMixture
 from gtts import gTTS
-from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
+try:
+    # moviepy 1.x
+    from moviepy.editor import ImageClip, AudioFileClip, concatenate_videoclips
+except ImportError:
+    # moviepy 2.x (currently version 2.1.2)
+    from moviepy import ImageClip, AudioFileClip, concatenate_videoclips
 from PIL import Image, ImageDraw, ImageFont
 
 # Configuration
