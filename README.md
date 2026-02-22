@@ -1,6 +1,8 @@
 # Finance
 A work in progress -- always being updated!
 
+**New here?** Check out the [Tutorial](TUTORIAL.md) for a step-by-step guide on how to install and use every module in this repository.
+
 ## Find_Stocks
 This folder contains several algorithms that return stocks that show promising data and therefore can be classified as a buy in the stock market. Some of the algorithms include extended market calculators, stock screeners, analyst recommendation parsers, and finding high movers!
 
