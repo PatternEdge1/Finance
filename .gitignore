@@ -28,3 +28,8 @@ finviz_table
 *.xls
 Portfolio_Strategies/COT_sp500_data.csv
 *.zip
+
+# Regime Analysis output and credentials
+Regime_Analysis/output/
+Regime_Analysis/credentials.json
+Regime_Analysis/token.pickle

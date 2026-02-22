@@ -1,0 +1,15 @@
+# Core dependencies for Daily Regime Dashboard Video Generation
+numpy
+pandas
+yfinance
+scikit-learn
+matplotlib
+moviepy
+gTTS
+Pillow
+
+# Optional: for YouTube auto-upload
+# Uncomment the following lines if you want to use auto_upload.py
+# google-auth
+# google-auth-oauthlib
+# google-api-python-client
