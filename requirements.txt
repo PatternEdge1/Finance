@@ -68,3 +68,4 @@ wordcloud
 yahoo_earnings_calendar
 yahoo_fin
 zigzag
+openpyxl
