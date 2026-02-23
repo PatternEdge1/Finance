@@ -19,6 +19,26 @@ This folder contains several programs that collect a wide variety of data on sto
 ## Technical_Indicators 
 This folder contains a graphical representation of about 140 technical indicators (RSI, Bollinger Bands, moving averages, etc.) in the stock market. Many of the algorithms contained use of Pandas, Matplotlib, TA-Lib and NumPy. The basis of these algorithms were obtained from <a href="https://github.com/LastAncientOne">TheLastAncientOne</a>!
 
+## Regime_Analysis
+This folder contains agent-ready scripts for end-to-end market regime detection and strategy backtesting using Gaussian Mixture Models (GMM).  The runner script is designed for use with Claude AI agents and other automation tools — fully non-interactive, no GUI required.
+
+```bash
+# Analyse SPY and save results (chart + metrics CSV)
+python Regime_Analysis/regime_agent_runner.py --ticker SPY --years 5
+
+# Multiple tickers, custom output folder
+for TICKER in SPY QQQ IWM GLD TLT; do
+  python Regime_Analysis/regime_agent_runner.py --ticker $TICKER --output-dir /tmp/regime_out
+done
+```
+
+## Using Claude AI Agents with this Repository
+
+See **[CLAUDE.md](./CLAUDE.md)** for a complete guide on:
+- How to use Claude agents for regime analysis
+- How to avoid the "Allow" permission prompt on every action (`.claude/settings.json`)
+- How to structure prompts for fully autonomous, all-day agent runs
+
 ### Disclaimer
 <i>
 The material in this repository is purely for educational purposes and should not be taken as professional investment advice. Invest at your own discretion.
