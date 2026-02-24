@@ -28,3 +28,5 @@ finviz_table
 *.xls
 Portfolio_Strategies/COT_sp500_data.csv
 *.zip
+option_playbook.csv
+option_playbook_chart.png
